@@ -17,13 +17,18 @@ int main(void) {
     gpio_init();
     serial_init();
 
+    while(1) {
+    	serial_send_byte('A');
+    	__delay_cycles(50000);
+    }
+
 	return 0;
 }
 
 void clock_init(void) {
 	//Init DCO to 12MHz calibrated
 	DCOCTL = CALDCO_12MHZ;
-	BCSCTL1 |= CALBC1_12MHZ;
+	BCSCTL1 = CALBC1_12MHZ;
 
 	//Init MCLK to 12MHz DCO
 	//Init SMCLK to 12MHz DCO
