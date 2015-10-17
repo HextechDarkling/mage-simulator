@@ -8,8 +8,10 @@
 #ifndef SERIAL_H_
 #define SERIAL_H_
 
+//Initialize the module
 void serial_init(void);
 
-void serial_send_byte(unsigned char data);
+//Write a single byte
+void serial_tx_byte(unsigned char data);
 
 #endif /* SERIAL_H_ */

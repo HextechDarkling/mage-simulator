@@ -26,7 +26,7 @@ void serial_init(void) {
 
 }
 
-void serial_send_byte(unsigned char data) {
+void serial_tx_byte(unsigned char data) {
 	//Check to see if waiting on transmit
 	while(!(UCA0TXIFG&UCA0TXIFG)); //Busy loop while unable to TX.  TODO: Fix to be interrupt-based
 	//Place data in transmit register

@@ -18,7 +18,7 @@ int main(void) {
     serial_init();
 
     while(1) {
-    	serial_send_byte('A');
+    	serial_tx_byte('A');
     	__delay_cycles(50000);
     }
 
