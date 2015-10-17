@@ -46,3 +46,8 @@ void i2c_init(void) {
 
 
 }
+
+void i2c_tx_byte(unsigned int address, unsigned char data) {
+	UCB0I2CSA = address;
+
+}

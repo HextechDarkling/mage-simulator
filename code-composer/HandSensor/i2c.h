@@ -15,6 +15,6 @@ void i2c_init(void);
 void i2c_tx_byte(unsigned char address, unsigned char data);
 
 //Write multiple bytes to the specified address
-void i2c_tx_multibyte(unsigned char address, unsigned char* buffer, unsigned char count);
+void i2c_tx_multibyte(unsigned int address, unsigned char* buffer, unsigned char count);
 
 #endif /* I2C_H_ */
