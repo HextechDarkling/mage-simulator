@@ -81,6 +81,25 @@ void serial_tx_buffer(unsigned char buffer[], unsigned int count) {
 	IE2 |= UCA0TXIE;
 }
 
+unsigned int serial_count_data_available(void) {
+	return count(&RXBuf);
+}
+
+unsigned char serial_read_byte(void) {
+	if(count(&RXBuf) > 0) {
+		return readByte(&RXBuf);
+	} else {
+		return 0;
+	}
+}
+
+void serial_read_buffer(unsigned char buffer[], unsigned int count) {
+	int i;
+	for(i = 0; i < count; i++) {
+		buffer[i] = readByte(&RXBuf);
+	}
+}
+
 #pragma vector=USCIAB0TX_VECTOR
 __interrupt void USCIAB0TX_ISR(void) {
 	//Transmitted a byte, load a new one

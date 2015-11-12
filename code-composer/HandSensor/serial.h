@@ -17,4 +17,13 @@ void serial_tx_byte(unsigned char data);
 //Write a buffer to the UART
 void serial_tx_buffer(unsigned char *buffer, unsigned int count);
 
+//Check to see if data is available in the RX buffer
+unsigned int serial_count_data_available(void);
+
+//Read a byte from the RX buffer
+unsigned char serial_read_byte(void);
+
+//Read multiple bytes from the RX buffer
+void serial_read_buffer(unsigned char buffer[], unsigned int count);
+
 #endif /* SERIAL_H_ */

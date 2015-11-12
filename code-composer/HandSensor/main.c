@@ -20,8 +20,10 @@ int main(void) {
     __bis_SR_register(GIE);
 
     while(1) {
-    	serial_tx_buffer("HELLO", 5);
     	LPM3;
+    	while(serial_count_data_available() > 0) {
+    		serial_tx_byte(serial_read_byte());
+    	}
     }
 
 	return 0;
