@@ -17,9 +17,11 @@ int main(void) {
     gpio_init();
     serial_init();
 
+    __bis_SR_register(GIE);
+
     while(1) {
-    	serial_tx_byte('A');
-    	__delay_cycles(50000);
+    	serial_tx_buffer("HELLO", 5);
+    	LPM3;
     }
 
 	return 0;
