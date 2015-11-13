@@ -1,6 +1,8 @@
 #include <msp430.h> 
+#include <stdbool.h>
 
 #include "serial.h"
+#include "i2c.h"
 
 /*
  * main.c
@@ -16,14 +18,18 @@ int main(void) {
     clock_init();
     gpio_init();
     serial_init();
+    i2c_init();
 
     __bis_SR_register(GIE);
 
+    i2c_set_slave_address(0x68);
+    i2c_start(true);
+    i2c_tx_byte(0x3B);
+    i2c_start(false);
+    volatile int result = i2c_rx_byte();
+    i2c_stop();
     while(1) {
     	LPM3;
-    	while(serial_count_data_available() > 0) {
-    		serial_tx_byte(serial_read_byte());
-    	}
     }
 
 	return 0;
