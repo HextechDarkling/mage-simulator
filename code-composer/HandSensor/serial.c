@@ -49,8 +49,9 @@ void serial_init(void) {
 	//Source USCI module from SMCLK
 	UCA0CTL1 |= UCSSEL_2;
 	// (UCAxBR0 + UCAxBR1 × 256)
-	UCA0BR0 = 0xE2;
-	UCA0BR1 = 0x04;
+	UCA0BR0 = 104;
+	UCA0BR1 = 0x00;
+	UCA0MCTL |= UCBRS_1;
 
 	//Initialize state machine
 	UCA0CTL1 &= ~UCSWRST;
@@ -75,10 +76,13 @@ void serial_tx_byte(unsigned char data) {
 void serial_tx_buffer(unsigned char buffer[], unsigned int count) {
 	int i;
 	for(i = 0; i < count; i++) {
-		writeByte(&TXBuf, buffer[i]);
+		//writeByte(&TXBuf, buffer[i]);
+		//TODO: FIX THIS AGAIN
+		UCA0TXBUF = buffer[i];
+		while(!(IFG2 & UCA0TXIFG));
 	}
 	//Start data transmission
-	IE2 |= UCA0TXIE;
+	//IE2 |= UCA0TXIE;
 }
 
 unsigned int serial_count_data_available(void) {
