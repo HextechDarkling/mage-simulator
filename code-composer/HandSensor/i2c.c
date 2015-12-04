@@ -20,7 +20,7 @@ void i2c_init(void) {
 	UCB0CTL1 |= UCSSEL_2;	//Source from 12MHz SMCLK
 
 	//Prescaler of 120 for 100kHz clock speed
-	UCB0BR0 = 120;
+	UCB0BR0 = 60;
 	UCB0BR1 = 0;
 
 	//Confugre port functions
