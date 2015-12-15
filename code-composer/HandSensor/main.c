@@ -20,14 +20,19 @@ int main(void) {
     gpio_init();
     serial_init();
     i2c_init();
-    sensor_init();
+    //sensor_init();
 
     __bis_SR_register(GIE);
 
     int results[6];
 
     while(true) {
-        sensor_read(false, results);
+        //sensor_read(false, results);
+    	i2c_set_slave_address(0x86);
+		i2c_start(true);	//Gyro Init
+		i2c_tx_byte(0x1B);
+		i2c_tx_byte(0x08);
+		i2c_stop();
     }
 
 	return 0;

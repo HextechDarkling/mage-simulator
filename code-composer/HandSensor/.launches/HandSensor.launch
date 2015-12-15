@@ -12,7 +12,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.TI MSP430 USB2_0/MSP430" value="HandSensor"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:HandSensor}"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.TI MSP430 USB1/MSP430" value="C:/Users\Alex\Programming\School_Projects\mage-simulator\code-composer\HandSensor\Debug\HandSensor.out"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.TI MSP430 USB1_0/MSP430" value="C:/Users\hexte\Programming\SchoolProjects\MageSimulator\code-composer\HandSensor\Debug\HandSensor.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.TI MSP430 USB1_0/MSP430" value="C:/Users\Alex\Programming\School_Projects\mage-simulator\code-composer\HandSensor\Debug\HandSensor.out"/>
 <mapAttribute key="com.ti.ccstudio.debug.ui.displayFormats">
 <mapEntry key="TI MSP430 USB1/MSP430@##separator##@0" value="16-Bit Hex - TI Style"/>
 </mapAttribute>
